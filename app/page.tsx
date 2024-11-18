@@ -1,95 +1,117 @@
+"use client";
+
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay,Navigation } from "swiper/modules";
+import "swiper/css";
+import "animate.css";
+import Grid from "@mui/material/Grid2";
+import { Button, TextField, Typography } from "@mui/material";
 import styles from "./page.module.css";
+import ElevateAppBar from "./components/ElevateAppBar";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export default function Home() {
+  const Slider = [
+    {
+      imageURL: "/assets/NeuhueSlide1.png",
+      title: "Slide 1 Title",
+      description: "Slide 1 description goes here.",
+    },
+    {
+      imageURL: "/assets/NeuhueSlide2.png",
+      title: "Slide 2 Title",
+      description: "Slide 2 description goes here.",
+    },
+    {
+      imageURL: "/assets/NeuhueSlide3.png",
+      title: "Slide 3 Title",
+      description: "Slide 3 description goes here.",
+    },
+  ];
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Grid container id="Home">
+        <Grid size={12} className={styles.backgroundImage}>
+          <ElevateAppBar />
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            loop={true}
+            navigation={true}
+            modules={[Autoplay,Navigation]}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            {Slider.map((slide, index) => (
+              <SwiperSlide key={index}>
+                <Grid
+                  container
+                  style={{ height: "calc(100vh - 4rem)" }}
+                  alignItems="center"
+                >
+                  <Grid size={4} className={styles.text}>
+                    <Typography variant="h2" align="center" className=" animate__animated animate__fadeInDown">
+                      {slide.title}
+                    </Typography>
+                    <Typography variant="body1"  className=" animate__animated animate__fadeInDown"  align="center">
+                      {slide.description}
+                    </Typography>
+                  </Grid>
+                  <Grid size={8} className={styles.image}>
+                    <Image
+                     className=" animate__animated animate__fadeInDown"
+                      src={slide.imageURL}
+                      style={{
+                        height: "auto",
+                        width: index === 2 ? "100%" : "80%",
+                      }}
+                      alt={`Slide ${index + 1} Image`}
+                      width={500}
+                      height={800}
+                    />
+                  </Grid>
+                </Grid>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Grid>
+        <Grid size={12} id="about">
+          <Grid container className={styles.aboutUs} alignItems="center">
+            <Grid size={8} className={styles.text}>
+              <Typography variant="h2" align="center">About Us</Typography>
+              <Typography variant="body1" align="center">
+                This is the About Us section. Add your content here.
+              </Typography>
+            </Grid>
+            <Grid size={4} className={styles.image}>
+              <Image
+              className=" animate__animated animate__fadeInRight"
+                src={"/assets/NeuhueAbout.png"}
+                style={{ height: "auto", width: "80%" }}
+                alt={`About Us Image`}
+                width={500}
+                height={800}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid size={12} id="contact"  className={styles.contactUs}>
+            <Grid container alignItems="center" justifyContent="center">
+              <Grid size={12} className={styles.logo}>
+                <Image src="/assets/Neuhuelogo.png" alt="Logo" width={110} height={42}/>
+              </Grid>
+              <Grid size={6} >
+                  <Typography variant="h2" align="center">Contact Us</Typography>
+                  <TextField label="Name" variant="filled" fullWidth margin="normal" />
+                  <TextField label="Email" variant="filled" fullWidth margin="normal" />
+                  <TextField label="Message" variant="filled" fullWidth margin="normal" multiline rows={4} />
+                  <Button variant="contained" color="primary" fullWidth>Submit</Button>
+              </Grid>
+            </Grid>
+          </Grid>
+      </Grid>
+    </>
   );
 }

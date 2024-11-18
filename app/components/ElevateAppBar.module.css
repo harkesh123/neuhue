@@ -1,0 +1,25 @@
+.appBar {
+    background: linear-gradient(to right, white 50%, transparent 40%);
+    padding: 10px 20px;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .link {
+    margin: 0 10px;
+    text-decoration: none;
+  }
