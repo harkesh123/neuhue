@@ -47,7 +47,7 @@ export default function Home() {
           <Swiper
             spaceBetween={50}
             slidesPerView={1}
-            autoplay={{ delay: 500000, disableOnInteraction: false }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             loop={true}
             modules={[Autoplay]}
           >
