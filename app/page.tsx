@@ -94,24 +94,24 @@ export default function Home() {
         </Grid>
         <Grid size={12} id="about">
           <Grid container className={styles.aboutUs}>
-            <Grid size={8} className={styles.text}>
+            <Grid size={8}  className={styles.text}>
               <Typography variant="h2" align="center">
               About Us
               </Typography>
               <br />
-              <Typography variant="subtitle1" justifyContent="center">
+              <Typography  align="center"  variant="subtitle1" justifyContent="center">
               We are Neuhue Communications, an advertising agency based in
               Bengaluru, striving to go the extra mile for our clients and
               make a difference in their journey. We are client-centric, keen
               on adding an edge in the highly competitive market.
               </Typography>
               <br />
-              <Typography variant="subtitle1" justifyContent="center">
+              <Typography  align="center"  variant="subtitle1" justifyContent="center">
               Our team is a fusion of youth and experienced, who bring passion
               and purpose to the table.
               </Typography>
               <br />
-              <Typography variant="subtitle1" justifyContent="center">
+              <Typography variant="subtitle1"  align="center"  justifyContent="center">
               Our services include: Creative & branding, Digital marketing,
               Media release, Print & outdoor.
               </Typography>
