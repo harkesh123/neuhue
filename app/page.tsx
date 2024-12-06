@@ -18,7 +18,7 @@ export default function Home() {
       imageURL: "/assets/NeuhueSlide1.png",
       title: "Creative & Branding",
       description:
-        "From Concepts to Completion, Logo Designing to Campaigns,Posters to Brochures.Everything, anything.",
+      "From Concepts to Completion,Logo Designing to Campaigns,<br />Posters to Brochures.Everything, anything.",
       styleWidth: "75%",
       imgWidth: 650,
     },
@@ -26,7 +26,7 @@ export default function Home() {
       imageURL: "/assets/NeuhueSlide2.png",
       title: "Digital Marketing",
       description:
-        "From websites to web promos Emailers to Google Ads, SEO to SMM. All that matters.",
+        "From websites to web promos Emailers to Google Ads,<br /> SEO to SMM. All that matters.",
       styleWidth: "80%",
       imgWidth: 650,
     },
@@ -34,7 +34,7 @@ export default function Home() {
       imageURL: "/assets/NeuhueSlide3.png",
       title: "Media Release",
       description:
-        "From Local to National Newspapers, Signboards to Standees, Stalls to Kiosks, Indoor to outdoor, all covered.",
+        "From Local to National Newspapers, Signboards to Standees,<br /> Stalls to Kiosks, Indoor to outdoor, all covered.",
       styleWidth: "95%",
       imgWidth: 800,
     },
@@ -47,7 +47,7 @@ export default function Home() {
           <Swiper
             spaceBetween={50}
             slidesPerView={1}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            autoplay={{ delay: 500000, disableOnInteraction: false }}
             loop={true}
             modules={[Autoplay]}
           >
@@ -67,12 +67,11 @@ export default function Home() {
                       {slide.title}
                     </Typography>
                     <Typography
-                      variant="body1"
+                      variant="h6"
                       className=" animate__animated animate__fadeInDown"
                       align="center"
-                    >
-                      {slide.description}
-                    </Typography>
+                      dangerouslySetInnerHTML={{ __html: slide.description }}
+                    />
                   </Grid>
                   <Grid size={6} className={styles.image}>
                     <Image
@@ -101,8 +100,8 @@ export default function Home() {
               <br />
               <Typography  align="center"  variant="subtitle1" justifyContent="center">
               We are Neuhue Communications, an advertising agency based in
-              Bengaluru, striving to go the extra mile for our clients and
-              make a difference in their journey. We are client-centric, keen
+              Bengaluru, striving<br /> to go the extra mile for our clients and
+              make a difference in their journey.<br /> We are client-centric, keen
               on adding an edge in the highly competitive market.
               </Typography>
               <br />
